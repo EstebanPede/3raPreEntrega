@@ -44,17 +44,15 @@ const cargarProductosDesdeLocalStorage = () => {
   return JSON.parse(localStorage.getItem("productos")) || productos;
 };
 
-// Realiza cambios en la lista de productos
-productos[0].precio = 200; // Por ejemplo, cambia el precio del primer producto
 
-// Actualiza el almacenamiento local con la lista modificada
+productos[0].precio = 200; 
+
+// Actualiza almacenamiento 
 actualizarProductosEnLocalStorage();
 
-// Luego, vuelves a cargar los productos desde el almacenamiento local
+// cargar los productos 
 const storedProductos = cargarProductosDesdeLocalStorage();
 
-// Ahora puedes usar storedProductos en tu aplicación
 console.log(storedProductos);
 
-// JSON.parse(localStorage.getItem("productos")) || localStorage.setItem("productos", JSON.stringify(productos));
 
