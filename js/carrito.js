@@ -55,7 +55,7 @@ export const comprarProducto = (idProducto) => {
     }
     carrito = JSON.parse(sessionStorage.getItem("carrito"))
 
-    alert(`usted compro el producto ${nombre}`)
+    alert(`Su producto se agrego correctamente al carrito:  ${nombre}`)
 
 }
 
@@ -151,5 +151,7 @@ const restarCantidad = (id) => {
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
     dibujarCarrito()
+
+
 
 }

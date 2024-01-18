@@ -1,4 +1,4 @@
-
+import { comprarProducto } from "./carrito.js"
 
 
 const userLogin = document.getElementById("userLogin")
