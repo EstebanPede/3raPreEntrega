@@ -7,7 +7,7 @@ fetch("./db/productos.json")
     .then(data => {
         productos = data;
         generarCardsProductos(productos);
-        // Actualizar localStorage con los nuevos datos
+
         localStorage.setItem("productos", JSON.stringify(productos));
     });
 
@@ -44,3 +44,48 @@ export const generarCardsProductos = (productos) => {
         btnComprar.addEventListener("click", () => comprarProducto(id));
     });
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    agregarEventoFiltro("filtroLineas", "categoria");
+    agregarEventoFiltro("filtroPrecio", "precio");
+
+});
+
+function agregarEventoFiltro(idFiltro, tipoFiltro) {
+    const filtroElemento = document.getElementById(idFiltro);
+
+    filtroElemento.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const valorFiltro = e.target.dataset[tipoFiltro];
+
+        // Implementar la lógica de filtrado según el tipo de filtro y el valor seleccionado
+        if (tipoFiltro === "categoria") {
+            filtrarPorCategoria(valorFiltro);
+        } else if (tipoFiltro === "precio") {
+            filtrarPorPrecio(valorFiltro);
+        }
+    });
+}
+
+function filtrarPorCategoria(categoriaSeleccionada) {
+
+    productosDisponibles = productos.filter((producto) =>
+        categoriaSeleccionada === "Todos" || producto.categoria === categoriaSeleccionada
+    );
+
+    generarCardsProductos(productosDisponibles);
+}
+
+function filtrarPorPrecio(precioSeleccionado) {
+
+    productosDisponibles = productos.slice().sort((a, b) => b.precio - a.precio);
+    if (precioSeleccionado === "Menor") {
+        productosDisponibles.reverse();
+    }
+    generarCardsProductos(productosDisponibles);
+}
+
+
+
+

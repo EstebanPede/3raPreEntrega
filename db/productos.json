@@ -23,14 +23,14 @@
     {
       "id": 4,
       "nombre": "Banderola",
-      "precio": 50,
+      "precio": 20,
       "imagen":"./img/g1.jpg",
       "categoria":"Europa"
     },
     {
       "id": 5,
       "nombre": "Corrediza",
-      "precio": 50,
+      "precio": 10,
       "imagen":"./img/g2.jpg",
       "categoria":"Modena"
     }
